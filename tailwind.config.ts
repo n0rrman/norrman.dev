@@ -6,7 +6,17 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
+      },
+      colors: {
+        blueFrom: 'hsl(var(--color-blueFrom) / <alpha-value>)',
+        blueTo: 'hsl(var(--color-blueTo) / <alpha-value>)',
+      }
+    }
+  },
   plugins: [],
 }
 export default config
