@@ -10,13 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run:  docker build -t $DOCKER_IMAGE .
+
+      - name: Build Docker image
+        run:  docker build -t $DOCKER_IMAGE .
         env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Docker Hub login
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push $DOCKER_IMAGE
+
+      - name: Push Docker image
+        run: docker push $DOCKER_IMAGE
         env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
+
+      - name: Deploy to Swarm
+        uses: sagebind/docker-swarm-deploy-action@v2
+        with:
+          remote_host: ssh://${{ secrets.REMOTE_HOST }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          args: stack deploy -c ${{ secrets.YAML_PATH }} 
