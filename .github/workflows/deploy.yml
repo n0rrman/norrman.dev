@@ -26,11 +26,13 @@ jobs:
         run: docker push $DOCKER_IMAGE
         env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
-
+          
       - name: Deploy to Swarm
-        uses: sagebind/docker-swarm-deploy-action@v2
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          remote_host: ssh://${{ secrets.REMOTE_HOST }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-          args: stack deploy -c ${{ secrets.YAML_PATH }} 
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: stack deploy -c ${{ secrets.YAML_PATH }}
+
