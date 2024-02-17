@@ -9,7 +9,7 @@ import developmentImg from "/public/development.svg";
 import devOpsImg from "/public/devops.svg";
 import maintenanceImg from "/public/maintenance.svg";
 
-import ServiceButtonBar from "../dev/service-button-bar";
+// import ServiceButtonBar from "../dev/service-button-bar";
 import ServiceBox from "./service-box";
 import SectionDivider from "./section-divider";
 
