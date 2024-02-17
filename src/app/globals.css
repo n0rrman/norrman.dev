@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-blueTo: 197deg 100% 46%;
+    --color-blueFrom: 226deg 93% 47%;
+  }
+}

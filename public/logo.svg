@@ -1,0 +1,29 @@
+<svg width="410" height="410" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <line stroke-width="14" id="svg_8" y2="355.40828" x2="103.43697" y1="53.40828" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="14" id="svg_9" y2="356" x2="303.43697" y1="54" x1="303.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_11" y2="205" x2="303.43697" y1="205" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_15" y2="355" x2="303.43697" y1="55" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_16" y2="345" x2="303.43697" y1="65" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_17" y2="335" x2="303.43697" y1="75" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_18" y2="325" x2="303.43697" y1="85" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_19" y2="315" x2="303.43697" y1="95" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_20" y2="305" x2="303.43697" y1="105" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_21" y2="295" x2="303.43697" y1="115" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_22" y2="285" x2="303.43697" y1="125" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_23" y2="275" x2="303.43697" y1="135" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_24" y2="265" x2="303.43697" y1="145" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_25" y2="255" x2="303.43697" y1="155" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_26" y2="245" x2="303.43697" y1="165" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_27" y2="235" x2="303.43697" y1="175" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_29" y2="225" x2="303.43697" y1="185" x1="103.43697" stroke="#000000" fill="none"/>
+    <line stroke-width="3" id="svg_99" y2="355.2" x2="298.15" y1="54.2" x1="108.8" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_30" y2="214.59839" x2="303.43697" y1="194.59839" x1="103.43697" stroke="#000000" fill="none"/>
+   <line stroke-width="3" id="svg_31" y2="205" x2="303.43697" y1="205" x1="103.43697" stroke="#000000" fill="none"/>
+   <path id="svg_35" d="m204.5,405c-110.49724,0 -200,-89.50276 -200,-200c0,-110.49724 89.50276,-200 200,-200c110.49724,0 200,89.50276 200,200c0,110.49724 -89.50276,200 -200,200z" opacity="undefined" stroke-width="11" stroke="#000000" fill="none"/>
+  </g>
+ </g>
+
+</svg>
