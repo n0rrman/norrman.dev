@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
-import HeroSection from "@/components/sections/hero-section";
-import ServicesSection from "@/components/sections/services-section";
-import ContactSection from "@/components/sections/contact-section";
-import NavigationBar from "@/components/sections/navigation-bar";
-import FooterSection from "@/components/sections/footer-section";
-
 import enFlag from "/public/uk-flag.svg";
+import NavigationBar from "@/components/navigation/navigation-bar";
+import HeroSection from "@/components/hero/hero-section";
+import ServicesSection from "@/components/services/services-section";
+import ContactSection from "@/components/contact/contact-section";
+import FooterSection from "@/components/footer/footer-section";
 
 export const metadata: Metadata = {
-  title: "Norrman: All your web services in one place!",
-  description: "Hello, world!",
+  title: "Norrman: SWE",
+  description: "Hej, världen!",
 };
 
 export default function Home() {
@@ -18,37 +17,75 @@ export default function Home() {
     <>
       <header>
         <NavigationBar
-          home="Hem"
-          homeLink="/se/"
-          services="Tjänster"
-          contact="Kontakt"
-          langTo="/en"
-          langName="English"
+          textContent={{
+            home: "Hem",
+            services: "Tjänster",
+            contact: "Kontakt",
+            lang: "English",
+            github: "Källkod",
+          }}
+          langTo="/en/"
           langIcon={enFlag}
         />
       </header>
-
-      <main className="flex flex-col justify-between m-w-[70rem] mx-auto px-16">
+      <main>
         <HeroSection
-          heading="Hej stjärnsken! Detta är en rubrik"
-          subheading="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-        dolores voluptates nobis ab assumenda error autem deserunt, laudantium
-        explicabo quaerat"
-          buttonText="En knapp"
-          scrollText="Scrolla ner"
+          textContent={{
+            heading: "Hej, hej! Detta är en rubrik",
+            subheading:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolores voluptates nobis ab assumenda error autem deserunt, laudantium explicabo quaerat",
+            buttonText: "En knapp",
+            scrollText: "Scrolla ner",
+          }}
         />
-
-        {/* <div className="border-1 border-t border-slate-200/65" /> */}
-
-        {/* <ServicesSection heading="Tjänster" /> */}
-
-        {/* <div className="border-1 border-t border-slate-200/65" /> */}
-
-        {/* <ContactSection /> */}
+        <ServicesSection
+          textContent={{
+            heading: "Tjänster",
+            introText:
+              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid.",
+            numberText: "Steg",
+            sections: [
+              {
+                number: 1,
+                title: "UI design",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 2,
+                title: "Utveckling",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 3,
+                title: "DevOps",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 4,
+                title: "Underhåll",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+            ],
+          }}
+        />
+        <ContactSection
+          textContent={{
+            heading: "Kontakt",
+            text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimos",
+            messageType: "Syfte",
+            inquiryTitle: "Projektförfrågan",
+            messageTitle: "Meddelande",
+            suggestionTitle: "Förslag",
+            nameLabel: "Namn",
+            emailLabel: "Mail",
+            messageLabel: "Meddelande",
+            send: "Skicka",
+          }}
+        />
       </main>
-      <footer>
+      {/* <footer>
         <FooterSection />
-      </footer>
+      </footer> */}
     </>
   );
 }

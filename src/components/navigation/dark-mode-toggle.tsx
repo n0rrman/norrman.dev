@@ -18,8 +18,7 @@ export default function DarkModeToggle() {
   useEffect(() => {
     const mode = theme === "light" ? Modes.LIGHT : Modes.DARK;
     setMode(mode);
-  }),
-    [];
+  }, [theme]);
 
   const changeMode = () => {
     switch (mode) {

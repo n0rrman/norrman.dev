@@ -32,7 +32,7 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
   return (
     <div
       onClick={handleClick}
-      className="h-full aspect-square flex justify-center items-center  rounded-full  border-2 hover:cursor-pointer"
+      className="h-full aspect-square flex justify-center items-center rounded-full border-2 border-slate-950 dark:border-slate-200 hover:cursor-pointer"
       ref={ref}
     >
       <div className="flex group flex-col items-center text-4xl ">
@@ -66,7 +66,7 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
       <div
         className={`${
           open
-            ? "opacity-100 scale-100 translate-y-[6.25rem] -translate-x-6"
+            ? "opacity-100 scale-100 translate-y-[6.25rem] -translate-x-8"
             : "opacity-0 scale-0 translate-y-0"
         } absolute h-auto w-auto shadow-xl backdrop-blur-lg z-50 ease-in-out transition-all duration-200 bg-slate-200/75 dark:bg-slate-950/50 p-3 rounded-xl`}
       >

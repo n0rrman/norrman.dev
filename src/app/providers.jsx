@@ -3,7 +3,7 @@
 import { ThemeProvider } from "next-themes";
 
 
-export function Provider({ children }) {
+export function Providers({ children }) {
   return (
     <ThemeProvider defaultTheme="dark" attribute="class">
       {children}

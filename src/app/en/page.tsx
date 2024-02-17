@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
-import HeroSection from "@/components/sections/hero-section";
-import ServicesSection from "@/components/sections/services-section";
-import ContactSection from "@/components/sections/contact-section";
-import NavigationBar from "@/components/sections/navigation-bar";
-import FooterSection from "@/components/sections/footer-section";
+import seFlag from "/public/swedish-flag.svg";
+import NavigationBar from "@/components/navigation/navigation-bar";
+import HeroSection from "@/components/hero/hero-section";
+import ServicesSection from "@/components/services/services-section";
+import ContactSection from "@/components/contact/contact-section";
+import FooterSection from "@/components/footer/footer-section";
 
 export const metadata: Metadata = {
-  title: "Norrman: All your web services in one place!",
+  title: "Norrman: ENG",
   description: "Hello, world!",
 };
 
@@ -15,30 +16,76 @@ export default function Home() {
   return (
     <>
       <header>
-        <NavigationBar />
-      </header>
-
-      <main className="flex flex-col justify-between m-w-[70rem] mx-auto px-16">
-        <HeroSection
-          heading="Hello, starshine! This is a heading"
-          subheading="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-        dolores voluptates nobis ab assumenda error autem deserunt, laudantium
-        explicabo quaerat"
-          buttonText="Press me"
-          scrollText="Scroll down"
+        <NavigationBar
+          textContent={{
+            home: "Home",
+            services: "Services",
+            contact: "Contact",
+            lang: "Svenska",
+            github: "Source Code",
+          }}
+          langTo="/se/"
+          langIcon={seFlag}
         />
-
-        <div className="border-1 border-t border-slate-200/65" />
-
-        <ServicesSection heading="Services" />
-
-        <div className="border-1 border-t border-slate-200/65" />
-
-        <ContactSection />
+      </header>
+      <main>
+        <HeroSection
+          textContent={{
+            heading: "Hello, world! This is a heading",
+            subheading:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolores voluptates nobis ab assumenda error autem deserunt, laudantium explicabo quaerat",
+            buttonText: "A button",
+            scrollText: "Scroll down",
+          }}
+        />
+        <ServicesSection
+          textContent={{
+            heading: "Services",
+            introText:
+              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid.",
+            numberText: "Step",
+            sections: [
+              {
+                number: 1,
+                title: "UI design",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 2,
+                title: "Development",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 3,
+                title: "DevOps",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+              {
+                number: 4,
+                title: "Maintenance",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+              },
+            ],
+          }}
+        />
+        <ContactSection
+          textContent={{
+            heading: "Contact",
+            text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimos",
+            messageType: "Topic",
+            inquiryTitle: "Inquiry",
+            messageTitle: "Message",
+            suggestionTitle: "Suggestion",
+            nameLabel: "Name",
+            emailLabel: "Mail",
+            messageLabel: "Message",
+            send: "Send",
+          }}
+        />
       </main>
-      <footer>
+      {/* <footer>
         <FooterSection />
-      </footer>
+      </footer> */}
     </>
   );
 }

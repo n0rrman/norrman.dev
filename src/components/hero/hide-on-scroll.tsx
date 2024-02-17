@@ -25,14 +25,14 @@ export default function HideOnScroll({
     return function () {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div
       className={
         `${
           hidden
-            ? "translate-y-[2.5rem] text-transparent"
+            ? "translate-y-[2.5rem] text-transparent select-none pointer-events-none"
             : "translate-y-0 text-inherit"
         } transition-all duration-500 ease-in-out ` + className
       }

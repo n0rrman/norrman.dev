@@ -4,8 +4,9 @@
 <svg
    version="1.1"
    id="svg2"
-   width="1600"
-   height="1066.6667"
+   width="800"
+   height="533"
+      preserveAspectRatio="none"
    viewBox="0 0 1600 1066.6667"
    sodipodi:docname="19198999.eps"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"

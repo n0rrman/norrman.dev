@@ -9,10 +9,14 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'mini': '375px'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
       },
       colors: {
+        bluishWhite: '#e1e8fc',
         blueFrom: 'hsl(var(--color-blueFrom) / <alpha-value>)',
         blueTo: 'hsl(var(--color-blueTo) / <alpha-value>)',
       }

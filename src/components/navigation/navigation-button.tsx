@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 interface NavigationButtonProps {
-  title: string;
+  name: string;
   icon: React.ReactNode;
   stickyMode: boolean;
   to: string;
@@ -9,7 +9,7 @@ interface NavigationButtonProps {
 }
 
 export default function NavigationButton({
-  title,
+  name,
   icon,
   stickyMode,
   to,
@@ -30,9 +30,9 @@ export default function NavigationButton({
       <div
         className={`${
           stickyMode ? "text-xs" : "text-xl lg:text-2xl"
-        } border-b-2 border-transparent group-hover:border-slate-200`}
+        } border-b-2 border-transparent dark:group-hover:border-slate-200 group-hover:border-slate-950 transition`}
       >
-        {title}
+        {name}
       </div>
     </Link>
   );
