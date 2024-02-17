@@ -10,13 +10,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run:  docker build -t $DOCKER_IMAGE .
+
+      - name: Build Docker image
+        run:  docker build -t $DOCKER_IMAGE .
         env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Docker Hub login
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push $DOCKER_IMAGE
+
+      - name: Push Docker image
+        run: docker push $DOCKER_IMAGE
         env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
+          
+      - name: Deploy to Swarm
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: docker stack deploy -c ${{ secrets.YAML_PATH }} ${{ secrets.SERVICE_NAME }} 
+
