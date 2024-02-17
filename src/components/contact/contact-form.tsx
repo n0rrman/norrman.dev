@@ -146,6 +146,7 @@ export default function ContactForm({
             */}
             <button
               disabled
+              aria-label="submit form"
               type="submit"
               className="flex flex-row items-center cursor-not-allowed justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:border-orange-400 hover:border-orange-400"
             >

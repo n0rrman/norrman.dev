@@ -13,6 +13,7 @@ export default function FormButton({
 }: FormButtonProps) {
   return (
     <button
+      aria-label={`${title} button`}
       onClick={() => clickHandler()}
       className={`${
         selected
