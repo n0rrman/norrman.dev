@@ -42,14 +42,14 @@ export default function DarkModeToggle() {
       onClick={changeMode}
       className="flex justify-center items-center gap-2 group"
     >
-      <div className="text-sm lg:text-lg border-b-2 w-9 lg:w-11 border-transparent dark:group-hover:border-slate-200 group-hover:border-slate-950">
+      <div className="text-base lg:text-lg border-b lg:border-b-2 w-9 lg:w-11 border-transparent dark:group-hover:border-slate-200 group-hover:border-slate-950">
         {mode == 0 && "Dark"}
         {mode == 1 && "Light"}
       </div>
-      <div className="text-3xl flex justify-center text-amber-400 items-center overflow-hidden relative h-6 w-6 lg:h-7 lg:w-7 bg-slate-600/75 rounded-full group-hover:scale-110 transition">
-        <div className="text-lg">
+      <div className="flex justify-center text-amber-400 items-center overflow-hidden relative h-4 w-4 lg:h-5 lg:w-5 bg-slate-600/75 rounded-full group-hover:scale-110 transition">
+        <div className="text-xs">
           {mode == 0 && <BsMoonStarsFill />}
-          {mode == 1 && <IoMdSunny className="text-2xl" />}
+          {mode == 1 && <IoMdSunny className="text-xl" />}
         </div>
       </div>
     </div>

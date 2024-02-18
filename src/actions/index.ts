@@ -2,9 +2,27 @@
 
 import { z } from "zod";
 
+import sendEmail from "@/emails/resend";
+import * as errors from "@/error-messages";
+
 
 const submitContactSchema = z.object({
-    content: z.string().min(3),
+    name: z.string()
+        .min(3, { message: errors.INPUT_TOO_SHORT })
+        .max(40, { message: errors.INPUT_TOO_LONG }),
+    email: z.string()
+        .email({ message: errors.INPUT_NOT_EMAIL })
+        .min(5, { message: errors.INPUT_TOO_SHORT })
+        .max(40, { message: errors.INPUT_TOO_LONG }),
+    message: z.string()
+        .min(10, { message: errors.INPUT_TOO_SHORT })
+        .max(4000, { message: errors.INPUT_TOO_LONG }),
+    topic: z.string()
+        .min(3, { message: errors.INPUT_TOO_SHORT })
+        .max(40, { message: errors.INPUT_TOO_LONG }),
+    language: z.string()
+        .min(3, { message: errors.INPUT_TOO_SHORT })
+        .max(40, { message: errors.INPUT_TOO_LONG }),
 });
 
 
@@ -13,6 +31,7 @@ interface SubmitContactFormState {
         name?: string[];
         email?: string[];
         message?: string[];
+        topic?: string[];
         _form?: string[];
     };
     success?: boolean;
@@ -20,25 +39,25 @@ interface SubmitContactFormState {
 
 export async function submitContactFormState(formState: SubmitContactFormState, formData: FormData): Promise<SubmitContactFormState> {
 
-    console.log(formData)
     const result = submitContactSchema.safeParse({
-        name: formData.get("name"),
-        email: formData.get("email"),
+        name : formData.get("name"),
+        email : formData.get("email"),
         message: formData.get("message"),
-        topic: formData.get("topic"),
+        topic : formData.get("topic"),
+        language : formData.get("language"),
     });
-
-    return {
-        errors: {
-            _form: ["Ths is an error"]
+    
+    if(!result.success) {
+        return {
+            errors: result.error.flatten().fieldErrors
         }
     }
+    
+    const { name, email, message, topic, language} = result.data;
+    sendEmail(topic, name, email, message, language)
 
+    return {
+        errors: {}
+    }
 }
-
-    // if (typeof title !== 'string' || title.length <3) {
-    //     return {
-    //         message: 'Title must be longer'
-    //     }
-    // }
  

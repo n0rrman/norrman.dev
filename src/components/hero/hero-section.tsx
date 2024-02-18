@@ -49,7 +49,7 @@ export default function HeroSection({
         threshold={200}
       >
         <Link
-          href="#services"
+          href="#contact-form"
           className="flex flex-col w-fit group justify-center items-center "
         >
           <h2 className="border-b border-b-transparent group-hover:cursor-pointer group-hover:border-b-slate-200 transition-[border] m-2">

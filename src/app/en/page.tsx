@@ -7,6 +7,8 @@ import ServicesSection from "@/components/services/services-section";
 import ContactSection from "@/components/contact/contact-section";
 import FooterSection from "@/components/footer/footer-section";
 
+import * as errors from "@/error-messages";
+
 export const metadata: Metadata = {
   title: "Norrman: ENG",
   description: "Hello, world!",
@@ -80,6 +82,12 @@ export default function Home() {
             emailLabel: "Mail",
             messageLabel: "Message",
             send: "Send",
+            errorMsgs: {
+              [errors.INPUT_NOT_EMAIL]: " is not a valid.",
+              [errors.INPUT_TOO_LONG]: " is too long.",
+              [errors.INPUT_TOO_SHORT]: " is too short.",
+            },
+            language: "eng",
           }}
         />
       </main>

@@ -98,7 +98,7 @@ export default function NavigationBar({
       );
     } else {
       return (
-        <div className="flex flex-row justify-center items-center gap-0 lg:gap-1 ">
+        <div className="flex flex-row justify-center items-center">
           {langToggle}
           <RxDividerVertical className="text-xl lg:text-2xl" />
           {darkToggle}

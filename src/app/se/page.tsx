@@ -7,6 +7,8 @@ import ServicesSection from "@/components/services/services-section";
 import ContactSection from "@/components/contact/contact-section";
 import FooterSection from "@/components/footer/footer-section";
 
+import * as errors from "@/error-messages";
+
 export const metadata: Metadata = {
   title: "Norrman: SWE",
   description: "Hej, världen!",
@@ -80,6 +82,12 @@ export default function Home() {
             emailLabel: "Mail",
             messageLabel: "Meddelande",
             send: "Skicka",
+            errorMsgs: {
+              [errors.INPUT_NOT_EMAIL]: " är inte giltlig.",
+              [errors.INPUT_TOO_LONG]: " är för lång.",
+              [errors.INPUT_TOO_SHORT]: " är för kort.",
+            },
+            language: "swe",
           }}
         />
       </main>
