@@ -1,6 +1,7 @@
 "use client";
 
 import { startTransition, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import {
   HiOutlineTag,
@@ -18,6 +19,8 @@ const INQUIRY = "Inquiry";
 const MESSAGE = "Message";
 const SUGGESTION = "Suggestion";
 
+import * as errors from "@/error-messages";
+
 interface ContactFormProps {
   messageType: string;
   inquiryTitle: string;
@@ -26,7 +29,13 @@ interface ContactFormProps {
   nameLabel: string;
   emailLabel: string;
   messageLabel: string;
+  errorMsgs: {
+    [errors.INPUT_NOT_EMAIL]: string;
+    [errors.INPUT_TOO_LONG]: string;
+    [errors.INPUT_TOO_SHORT]: string;
+  };
   send: string;
+  language: string;
 }
 
 export default function ContactForm({
@@ -37,13 +46,13 @@ export default function ContactForm({
   nameLabel,
   emailLabel,
   messageLabel,
+  errorMsgs,
   send,
+  language,
 }: ContactFormProps) {
   const [selectedButton, setSelectedButton] = useState(INQUIRY);
 
   const formRef = useRef(null);
-
-  const { pending } = useFormStatus();
   const [formState, action] = useFormState(submitContactFormState, {
     errors: {},
   });
@@ -58,7 +67,16 @@ export default function ContactForm({
     if (formRef.current) {
       const formData = new FormData(formRef.current);
 
-      formData.set("topic", selectedButton);
+      if (selectedButton === INQUIRY) {
+        formData.set("topic", inquiryTitle);
+      }
+      if (selectedButton === SUGGESTION) {
+        formData.set("topic", suggestionTitle);
+      }
+      if (selectedButton === MESSAGE) {
+        formData.set("topic", messageTitle);
+      }
+      formData.set("language", language);
 
       startTransition(() => {
         action(formData);
@@ -69,7 +87,10 @@ export default function ContactForm({
   return (
     <div className="flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-xl w-full">
       <div className="flex flex-row md:flex-col w-full md:w-72 gap-3 text-sm md:text-base lg:text-xl p-5 border-slate-900 dark:border-slate-200/65 dark:text-slate-200/65 border-b md:border-r md:border-b-0">
-        <h2 className="hidden md:block text-sm -mb-2 text-slate-900 dark:text-slate-200 uppercase tracking-widest text-center">
+        <h2
+          id="contact-form"
+          className="hidden md:block text-sm -mb-2 text-slate-900 dark:text-slate-200 uppercase tracking-widest text-center"
+        >
           {messageType}
         </h2>
 
@@ -102,6 +123,7 @@ export default function ContactForm({
       </div>
       <div className="relative w-full px-4 sm:px-7 py-5 md:p-7">
         <form
+          id="test"
           ref={formRef}
           onSubmit={handleSubmit}
           className="flex flex-col text-xs uppercase tracking-widest gap-2"
@@ -113,20 +135,26 @@ export default function ContactForm({
             <span className="text-orange-400">.</span>
           </h2>
           <FormInput
+            id="name"
             title={nameLabel}
             placeholder={`${nameLabel}: Alex Doe`}
-            error={formState.errors.name}
+            errors={formState?.errors.name}
+            errorMsgs={errorMsgs}
           />
           <FormInput
+            id="email"
             title={emailLabel}
             placeholder={`${emailLabel}: email@example.com`}
-            error={formState.errors.email}
+            errors={formState?.errors.email}
+            errorMsgs={errorMsgs}
           />
           <FormInput
+            id="message"
             title={messageLabel}
             placeholder={`${messageLabel}: 👋`}
             textarea
-            error={formState.errors.message}
+            errors={formState?.errors.message}
+            errorMsgs={errorMsgs}
           />
 
           <div className="flex flex-row justify-end text-sm">
@@ -145,9 +173,9 @@ export default function ContactForm({
             // DO NOT DELETE
             */}
             <button
-              disabled
+              aria-label="submit form"
               type="submit"
-              className="flex flex-row items-center cursor-not-allowed justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:border-orange-400 hover:border-orange-400"
+              className="flex flex-row items-center justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:border-orange-400 hover:border-orange-400"
             >
               <RiMailSendLine />
               <div>

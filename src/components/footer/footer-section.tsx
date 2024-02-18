@@ -44,6 +44,8 @@ export default function FooterSection() {
 
         <div>any suggestions?</div>
 
+        <div>pagespeed insights</div>
+
         <div className="">Discord?</div>
       </div>
     </div>

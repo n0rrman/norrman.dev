@@ -33,7 +33,7 @@ export default function HeroSection({
             {buttonText}
           </Link>
         </div>
-        <div className="relative flex justify-center items-center h-full w-[20rem] mini:w-[23rem] sm:w-[29rem] md:w-[25rem] lg:w-[32.5rem] xl:w-[40rem]">
+        <div className="relative flex justify-center items-center aspect-[1.6] w-[20rem] mini:w-[23rem] sm:w-[29rem] md:w-[25rem] lg:w-[32.5rem] xl:w-[40rem]">
           <Image
             className="object-contain mix-blend-multiply dark:mix-blend-hard-light select-none pointer-events-none contrast-125 dark:contrast-100 brightness-[0.9] dark:brightness-100"
             src={heroImg}
@@ -49,7 +49,7 @@ export default function HeroSection({
         threshold={200}
       >
         <Link
-          href="#services"
+          href="#contact-form"
           className="flex flex-col w-fit group justify-center items-center "
         >
           <h2 className="border-b border-b-transparent group-hover:cursor-pointer group-hover:border-b-slate-200 transition-[border] m-2">

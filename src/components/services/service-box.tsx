@@ -20,7 +20,7 @@ export default function ServiceBox({
 }: ServiceBoxProps) {
   return (
     <div className="flex -mt-8 h-full">
-      <div className="flex flex-row items-start justify-center h-full ml-[-2rem] md:ml-0 px-0 md:px-2 lg:px-6 ">
+      <div className="flex flex-row items-start justify-center h-full ml-[-1rem] md:ml-0 px-0 md:px-2 lg:px-6 ">
         <div className="flex flex-row items-center justify-start mt-8 mini:mt-7">
           <div className="hidden sm:block text-lg">{numberText}</div>
           <div

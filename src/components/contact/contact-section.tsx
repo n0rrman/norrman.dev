@@ -1,6 +1,8 @@
 import { MdOutlineEmail } from "react-icons/md";
 import ContactForm from "@/components/contact/contact-form";
 
+import * as errors from "@/error-messages";
+
 interface ContactSectionProps {
   textContent: {
     heading: string;
@@ -12,7 +14,13 @@ interface ContactSectionProps {
     nameLabel: string;
     emailLabel: string;
     messageLabel: string;
+    errorMsgs: {
+      [errors.INPUT_NOT_EMAIL]: string;
+      [errors.INPUT_TOO_LONG]: string;
+      [errors.INPUT_TOO_SHORT]: string;
+    };
     send: string;
+    language: string;
   };
 }
 
@@ -27,7 +35,9 @@ export default function ContactSection({
     nameLabel,
     emailLabel,
     messageLabel,
+    errorMsgs,
     send,
+    language,
   },
 }: ContactSectionProps) {
   return (
@@ -53,7 +63,9 @@ export default function ContactSection({
           nameLabel={nameLabel}
           emailLabel={emailLabel}
           messageLabel={messageLabel}
+          errorMsgs={errorMsgs}
           send={send}
+          language={language}
         />
       </div>
     </section>
