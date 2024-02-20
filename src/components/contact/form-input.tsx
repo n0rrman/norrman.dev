@@ -27,7 +27,7 @@ export default function FormInput({
   errorMsgs,
 }: FormInputProps) {
   useEffect(() => {
-    setValue(window.localStorage.getItem(title) || "");
+    setValue(window.localStorage.getItem(id) || "");
   }, [title]);
 
   const [value, setValue] = useState("");
@@ -39,7 +39,7 @@ export default function FormInput({
 
   const recordChange = (e: any) => {
     setValue(e.target.value);
-    window.localStorage.setItem(title, e.target.value);
+    window.localStorage.setItem(id, e.target.value);
   };
 
   const renderedInput = () => {

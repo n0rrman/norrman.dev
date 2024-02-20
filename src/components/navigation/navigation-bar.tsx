@@ -86,7 +86,7 @@ export default function NavigationBar({
       />
     );
 
-    if (stickyMode) {
+    if (true) {
       return (
         <HamburgerMenu>
           <div className="flex flex-col justify-center items-end gap-4 ">
@@ -115,7 +115,7 @@ export default function NavigationBar({
         className={`${
           stickyMode
             ? "fixed w-[19.5rem] mini:w-[23rem] sm:w-[35rem] top-2 rounded-[3rem] shadow-xl h-16 p-2 bg-slate-200/50 dark:bg-slate-950/20"
-            : "relative top-0 w-full h-28 lg:h-32 p-6 bg-transparent"
+            : "relative top-0 w-full h-28 p-6 bg-transparent"
         } flex flex-row select-none items-center justify-between backdrop-blur-md z-50 ease-in-out transition-all duration-200`}
       >
         <Link href="#" className="relative h-full aspect-square dark:invert">

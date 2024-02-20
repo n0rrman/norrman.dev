@@ -1,7 +1,6 @@
 "use client";
 
 import { startTransition, useRef, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 
 import {
   HiOutlineTag,
@@ -11,15 +10,16 @@ import {
 import { RiMailSendLine } from "react-icons/ri";
 import { useFormState, useFormStatus } from "react-dom";
 
-import FormInput from "./form-input";
 import { submitContactFormState } from "@/actions";
-import FormButton from "./form-button";
+import FormInput from "@/components/contact/form-input";
+import FormButton from "@/components/contact/form-button";
 
 const INQUIRY = "Inquiry";
 const MESSAGE = "Message";
 const SUGGESTION = "Suggestion";
 
 import * as errors from "@/error-messages";
+import Modal from "./contact-modal";
 
 interface ContactFormProps {
   messageType: string;
@@ -35,6 +35,8 @@ interface ContactFormProps {
     [errors.INPUT_TOO_SHORT]: string;
   };
   send: string;
+  sentMessage: string;
+  confirmationMessage: string;
   language: string;
 }
 
@@ -48,17 +50,36 @@ export default function ContactForm({
   messageLabel,
   errorMsgs,
   send,
+  sentMessage,
+  confirmationMessage,
   language,
 }: ContactFormProps) {
   const [selectedButton, setSelectedButton] = useState(INQUIRY);
+  const [modal, setModal] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const [topic, setTopic] = useState(inquiryTitle);
 
   const formRef = useRef(null);
   const [formState, action] = useFormState(submitContactFormState, {
     errors: {},
   });
 
+  const handleOpenModal = () => {
+    setModal(true);
+  };
+
   const handleButtonClick = (event: MouseEvent, buttonId: string) => {
     setSelectedButton(buttonId);
+    if (buttonId === INQUIRY) {
+      setTopic(inquiryTitle);
+    }
+    if (buttonId === SUGGESTION) {
+      setTopic(suggestionTitle);
+    }
+    if (buttonId === MESSAGE) {
+      setTopic(messageTitle);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,33 +88,41 @@ export default function ContactForm({
     if (formRef.current) {
       const formData = new FormData(formRef.current);
 
-      if (selectedButton === INQUIRY) {
-        formData.set("topic", inquiryTitle);
-      }
-      if (selectedButton === SUGGESTION) {
-        formData.set("topic", suggestionTitle);
-      }
-      if (selectedButton === MESSAGE) {
-        formData.set("topic", messageTitle);
-      }
+      formData.set("topic", topic);
       formData.set("language", language);
 
-      startTransition(() => {
-        action(formData);
-      });
+      if (!modal || !formState.success) {
+        formData.set("submit", "false");
+
+        startTransition(() => {
+          action(formData);
+        });
+
+        setModal(true);
+      } else {
+        formData.set("submit", "true");
+
+        startTransition(() => {
+          action(formData);
+        });
+
+        window.localStorage.removeItem("name");
+        window.localStorage.removeItem("email");
+        window.localStorage.removeItem("message");
+
+        setSent(true);
+      }
     }
   };
 
+  console.log("formstate:", formState.success);
+  console.log("modal:", modal);
   return (
-    <div className="flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-xl w-full">
+    <div className="relative flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-xl w-full overflow-hidden">
+      {/* {modal && (
+        <div className="absolute inset-0 bg-slate-200/10 dark:bg-slate-900/40 z-50 backdrop-blur " />
+      )} */}
       <div className="flex flex-row md:flex-col w-full md:w-72 gap-3 text-sm md:text-base lg:text-xl p-5 border-slate-900 dark:border-slate-200/65 dark:text-slate-200/65 border-b md:border-r md:border-b-0">
-        <h2
-          id="contact-form"
-          className="hidden md:block text-sm -mb-2 text-slate-900 dark:text-slate-200 uppercase tracking-widest text-center"
-        >
-          {messageType}
-        </h2>
-
         <FormButton
           clickHandler={(event: MouseEvent) =>
             handleButtonClick(event, INQUIRY)
@@ -102,7 +131,6 @@ export default function ContactForm({
           icon={<HiOutlineTag />}
           title={inquiryTitle}
         />
-
         <FormButton
           clickHandler={(event: MouseEvent) =>
             handleButtonClick(event, MESSAGE)
@@ -111,7 +139,6 @@ export default function ContactForm({
           icon={<HiOutlineAnnotation />}
           title={messageTitle}
         />
-
         <FormButton
           clickHandler={(event: MouseEvent) =>
             handleButtonClick(event, SUGGESTION)
@@ -121,17 +148,14 @@ export default function ContactForm({
           title={suggestionTitle}
         />
       </div>
-      <div className="relative w-full px-4 sm:px-7 py-5 md:p-7">
+      <div className="w-full px-4 sm:px-7 py-5 md:p-7">
         <form
-          id="test"
           ref={formRef}
           onSubmit={handleSubmit}
           className="flex flex-col text-xs uppercase tracking-widest gap-2"
         >
           <h2 className="text-xl py-2">
-            {selectedButton == INQUIRY && inquiryTitle}
-            {selectedButton == MESSAGE && messageTitle}
-            {selectedButton == SUGGESTION && suggestionTitle}
+            {topic}
             <span className="text-orange-400">.</span>
           </h2>
           <FormInput
@@ -173,21 +197,28 @@ export default function ContactForm({
             // DO NOT DELETE
             */}
             <button
+              id="form-button"
               aria-label="submit form"
               type="submit"
               className="flex flex-row items-center justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:border-orange-400 hover:border-orange-400"
             >
               <RiMailSendLine />
               <div>
-                {send}{" "}
-                <span className="lowercase">
-                  {selectedButton == INQUIRY && inquiryTitle}
-                  {selectedButton == MESSAGE && messageTitle}
-                  {selectedButton == SUGGESTION && suggestionTitle}
-                </span>
+                {send} <span className="lowercase">{topic}</span>
               </div>
             </button>
           </div>
+
+          {formState.success && modal && (
+            <Modal
+              sent={sent}
+              topic={topic}
+              hideModal={() => {
+                setModal(false);
+              }}
+              textContent={{ sentMessage, confirmationMessage }}
+            />
+          )}
         </form>
       </div>
     </div>
