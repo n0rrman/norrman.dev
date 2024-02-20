@@ -41,7 +41,6 @@ interface SubmitContactFormState {
 
 export async function submitContactFormState(formState: SubmitContactFormState, formData: FormData): Promise<SubmitContactFormState> {
 
-
     const result = submitContactSchema.safeParse({
         name : formData.get("name"),
         email : formData.get("email"),
