@@ -12,6 +12,7 @@ import maintenanceImg from "/public/maintenance.svg";
 // import ServiceButtonBar from "../dev/service-button-bar";
 import ServiceBox from "./service-box";
 import SectionDivider from "./section-divider";
+import FlatDivider from "./flat-divider";
 
 interface ServicesSectionProps {
   textContent: {
@@ -26,23 +27,24 @@ export default function ServicesSection({
   textContent: { heading, introText, numberText, sections },
 }: ServicesSectionProps) {
   return (
-    <section className="my-[25vh] min-h-screen w-full">
-      <SectionDivider top />
+    <section className="my-[25vh] w-full">
+      <SectionDivider slope top />
 
-      <div className="flex bg-bluishWhite dark:bg-slate-900 flex-col gap-8 px-10 md:px-20 py-32">
-        <h1
-          id="services"
-          className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8"
-        >
-          <FaTasks className="text-blueTo" />
-          <div className="text-slate-950 dark:text-slate-200">
-            {heading}
-            <span className="text-blueTo">.</span>
-          </div>
-        </h1>
-        <p className="pb-10 text-sm md:text-base">{introText}</p>
+      <div className="flex bg-bluishWhite dark:bg-slate-900 justify-center py-[15vh]">
+        <div className="container flex flex-col gap-4 max-w-[65rem] mx-8 md:mx-16">
+          <h1
+            id="services"
+            className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8"
+          >
+            <FaTasks className="text-blueTo" />
+            <div className="text-slate-950 dark:text-slate-200">
+              {heading}
+              <span className="text-blueTo">.</span>
+            </div>
+          </h1>
+          <p className="pb-10 text-sm md:text-base">{introText}</p>
 
-        {/* // DO NOT DELETE THIS
+          {/* // DO NOT DELETE THIS
         <h2 className="uppercase text-sm text-blueTo -mb-6 tracking-widest font-semibold">
           Select services ya want, mon:
         </h2>
@@ -62,37 +64,38 @@ export default function ServicesSection({
         </div>
         // DO NOT DELETE THIS */}
 
-        <ServiceBox
-          number={sections[0].number}
-          numberText={numberText}
-          title={sections[0].title}
-          text={sections[0].text}
-          img={designImg}
-        />
-        <ServiceBox
-          number={sections[1].number}
-          numberText={numberText}
-          title={sections[1].title}
-          text={sections[1].text}
-          img={developmentImg}
-        />
-        <ServiceBox
-          number={sections[2].number}
-          numberText={numberText}
-          title={sections[2].title}
-          text={sections[2].text}
-          img={devOpsImg}
-        />
-        <ServiceBox
-          number={sections[3].number}
-          numberText={numberText}
-          title={sections[3].title}
-          text={sections[3].text}
-          img={maintenanceImg}
-        />
+          <ServiceBox
+            number={sections[0].number}
+            numberText={numberText}
+            title={sections[0].title}
+            text={sections[0].text}
+            img={designImg}
+          />
+          <ServiceBox
+            number={sections[1].number}
+            numberText={numberText}
+            title={sections[1].title}
+            text={sections[1].text}
+            img={developmentImg}
+          />
+          <ServiceBox
+            number={sections[2].number}
+            numberText={numberText}
+            title={sections[2].title}
+            text={sections[2].text}
+            img={devOpsImg}
+          />
+          <ServiceBox
+            number={sections[3].number}
+            numberText={numberText}
+            title={sections[3].title}
+            text={sections[3].text}
+            img={maintenanceImg}
+          />
+        </div>
       </div>
 
-      <SectionDivider bottom />
+      <FlatDivider />
     </section>
   );
 }

@@ -36,9 +36,17 @@ export default function FooterSection() {
       <div className="flex flex-col items-end">
         <div>GitHub</div>
 
+        <div>source code to website</div>
+
+        <div>home</div>
+        <div>services</div>
+        <div>conttact</div>
+
         <div>email@norrman.com</div>
 
         <div>change language</div>
+
+        <div>change to darkmode?</div>
 
         <div>buy me a coffeee</div>
 

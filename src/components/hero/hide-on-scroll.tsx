@@ -34,7 +34,7 @@ export default function HideOnScroll({
           hidden
             ? "translate-y-[2.5rem] text-transparent select-none pointer-events-none"
             : "translate-y-0 text-inherit"
-        } transition-all duration-500 ease-in-out ` + className
+        } transition-all duration-500 ease-in-out z-50` + className
       }
     >
       {children}

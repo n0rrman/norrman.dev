@@ -20,9 +20,10 @@ interface EmailProps {
   email: string;
   message: string;
   topic: string;
+  URL: string;
 }
 
-export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
+export const SweEmail = ({ name, email, message, topic, URL }: EmailProps) => {
   return (
     <Tailwind>
       <div key={name}>
@@ -46,7 +47,7 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
                     <Img
                       className="ml-auto"
                       alt=""
-                      src="http://norrman.dev/static/logo.jpg"
+                      src={`${URL}/email/logo.jpg`}
                       width="80"
                       height="80"
                     />
@@ -57,7 +58,7 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
                 <Img
                   className="block mx-auto"
                   alt=""
-                  src="http://norrman.dev/static/email.png"
+                  src={`${URL}/email/email.png`}
                   height="260"
                   width="410"
                 />
@@ -68,11 +69,11 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
 
                 <Text className="inline text-lg">
                   Tack för ditt meddelande! Detta är ett automatiskt svar för
-                  att bekräfta att meddelandet har kommit fram. Inom 24 timmar
-                  får du ett manuellt svar.
+                  att bekräfta att meddelandet kommit fram. Inom 24 timmar får
+                  du ett manuellt svar.
                 </Text>
                 <Text className="text-sm">Ditt meddelande:</Text>
-                <pre className="rounded-xl bg-gray-600/10 -mt-3 p-4">
+                <pre className="rounded-xl bg-gray-600/10 -mt-3 p-4 w-full">
                   {message}
                 </pre>
                 <Row>

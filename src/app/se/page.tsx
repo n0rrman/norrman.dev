@@ -87,6 +87,10 @@ export default function Home() {
               [errors.INPUT_TOO_LONG]: " är för lång.",
               [errors.INPUT_TOO_SHORT]: " är för kort.",
             },
+            sentMessage:
+              "Tack för ditt meddelande! Lorem ipsum dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet",
+            confirmationMessage:
+              "Lorem jaudhia hoiahsoud ohiasoiud ioasdio aiou",
             language: "swe",
           }}
         />
