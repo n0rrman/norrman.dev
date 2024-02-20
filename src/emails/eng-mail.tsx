@@ -47,7 +47,7 @@ export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
                     <Img
                       className="ml-auto"
                       alt=""
-                      src="https://norrman.dev/email/logo.jpg"
+                      src="https://henriknorrman.com/logo.jpg"
                       width="80"
                       height="80"
                     />
@@ -58,7 +58,7 @@ export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
                 <Img
                   className="block mx-auto"
                   alt=""
-                  src="https://norrman.dev/email/email.png"
+                  src="https://henriknorrman.com/email.png"
                   height="260"
                   width="410"
                 />
