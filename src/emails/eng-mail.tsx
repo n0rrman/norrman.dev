@@ -21,10 +21,9 @@ interface EmailProps {
   email: string;
   message: string;
   topic: string;
-  URL: string;
 }
 
-export const EngEmail = ({ name, email, message, topic, URL }: EmailProps) => {
+export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
   return (
     <Tailwind>
       <div key={name}>
@@ -48,7 +47,7 @@ export const EngEmail = ({ name, email, message, topic, URL }: EmailProps) => {
                     <Img
                       className="ml-auto"
                       alt=""
-                      src={`${URL}/email/logo.jpg`}
+                      src="https://norrman.dev/email/logo.jpg"
                       width="80"
                       height="80"
                     />
@@ -59,7 +58,7 @@ export const EngEmail = ({ name, email, message, topic, URL }: EmailProps) => {
                 <Img
                   className="block mx-auto"
                   alt=""
-                  src={`${URL}/email/email.png`}
+                  src="https://norrman.dev/email/email.png"
                   height="260"
                   width="410"
                 />

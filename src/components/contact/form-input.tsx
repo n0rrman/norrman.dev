@@ -28,7 +28,7 @@ export default function FormInput({
 }: FormInputProps) {
   useEffect(() => {
     setValue(window.localStorage.getItem(id) || "");
-  }, [title]);
+  }, [id]);
 
   const [value, setValue] = useState("");
 

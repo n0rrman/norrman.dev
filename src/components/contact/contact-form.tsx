@@ -60,7 +60,7 @@ export default function ContactForm({
 
   const [topic, setTopic] = useState(inquiryTitle);
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formState, action] = useFormState(submitContactFormState, {
     errors: {},
   });
@@ -109,19 +109,15 @@ export default function ContactForm({
         window.localStorage.removeItem("name");
         window.localStorage.removeItem("email");
         window.localStorage.removeItem("message");
+        formRef.current?.reset();
 
         setSent(true);
       }
     }
   };
 
-  console.log("formstate:", formState.success);
-  console.log("modal:", modal);
   return (
     <div className="relative flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-xl w-full overflow-hidden">
-      {/* {modal && (
-        <div className="absolute inset-0 bg-slate-200/10 dark:bg-slate-900/40 z-50 backdrop-blur " />
-      )} */}
       <div className="flex flex-row md:flex-col w-full md:w-72 gap-3 text-sm md:text-base lg:text-xl p-5 border-slate-900 dark:border-slate-200/65 dark:text-slate-200/65 border-b md:border-r md:border-b-0">
         <FormButton
           clickHandler={(event: MouseEvent) =>
