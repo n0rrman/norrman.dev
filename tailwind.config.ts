@@ -9,6 +9,15 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        flyRight: {
+          '0%': { transform: 'translateX(-100vw)' },
+          '100%': { transform: 'translateX(100vw)' }, 
+        },
+      },
+      animation: {
+        flyRight: 'flyRight 1s ease-in',
+      },
       screens: {
         'mini': '375px'
       },

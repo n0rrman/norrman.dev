@@ -21,9 +21,10 @@ interface EmailProps {
   email: string;
   message: string;
   topic: string;
+  URL: string;
 }
 
-export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
+export const EngEmail = ({ name, email, message, topic, URL }: EmailProps) => {
   return (
     <Tailwind>
       <div key={name}>
@@ -47,7 +48,7 @@ export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
                     <Img
                       className="ml-auto"
                       alt=""
-                      src="http://norrman.dev/static/logo.jpg"
+                      src={`${URL}/email/logo.jpg`}
                       width="80"
                       height="80"
                     />
@@ -58,7 +59,7 @@ export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
                 <Img
                   className="block mx-auto"
                   alt=""
-                  src="http://norrman.dev/static/email.png"
+                  src={`${URL}/email/email.png`}
                   height="260"
                   width="410"
                 />
@@ -76,7 +77,7 @@ export const EngEmail = ({ name, email, message, topic }: EmailProps) => {
                   hours.
                 </Text>
                 <Text className="text-sm">Your message:</Text>
-                <pre className="rounded-xl bg-gray-600/10 -mt-3 p-4">
+                <pre className="rounded-xl bg-gray-600/10 -mt-3 p-4 text-wrap whitespace-pre-line">
                   {message}
                 </pre>
                 <Row>

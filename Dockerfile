@@ -15,17 +15,17 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-ARG RESEND_API_KEY
-ARG ADMIN_EMAIL
-ENV RESEND_API_KEY=$RESEND_API_KEY
-ENV ADMIN_EMAIL=$ADMIN_EMAIL
 RUN yarn run build
 
 
 # Prod image
 FROM base AS runner
 WORKDIR /app
+
+ARG RESEND_API_KEY
+ARG ADMIN_EMAIL
+ENV RESEND_API_KEY=$RESEND_API_KEY
+ENV ADMIN_EMAIL=$ADMIN_EMAIL
 
 ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs

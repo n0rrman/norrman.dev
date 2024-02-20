@@ -30,7 +30,7 @@ export default function Home() {
           langIcon={seFlag}
         />
       </header>
-      <main>
+      <main className="flex flex-col items-center justify-center">
         <HeroSection
           textContent={{
             heading: "Hello, world! This is a heading",
@@ -87,6 +87,9 @@ export default function Home() {
               [errors.INPUT_TOO_LONG]: " is too long.",
               [errors.INPUT_TOO_SHORT]: " is too short.",
             },
+            sentMessage: "Thank you for your message, lorem ipsum lorem ipsum!",
+            confirmationMessage:
+              "Lorem jaudhia hoiahsoud ohiasoiud ioasdio aiou",
             language: "eng",
           }}
         />

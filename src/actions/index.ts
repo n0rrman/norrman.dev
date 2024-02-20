@@ -35,9 +35,12 @@ interface SubmitContactFormState {
         _form?: string[];
     };
     success?: boolean;
+
 }
 
+
 export async function submitContactFormState(formState: SubmitContactFormState, formData: FormData): Promise<SubmitContactFormState> {
+
 
     const result = submitContactSchema.safeParse({
         name : formData.get("name"),
@@ -52,12 +55,16 @@ export async function submitContactFormState(formState: SubmitContactFormState, 
             errors: result.error.flatten().fieldErrors
         }
     }
-    
-    const { name, email, message, topic, language} = result.data;
-    sendEmail(topic, name, email, message, language)
+
+    const send = formData.get("submit");
+    if (send === "true") {
+        const { name, email, message, topic, language} = result.data;
+        sendEmail(topic, name, email, message, language)
+    }
 
     return {
-        errors: {}
-    }
+        errors: {},
+        success: true,
+      };
 }
  
