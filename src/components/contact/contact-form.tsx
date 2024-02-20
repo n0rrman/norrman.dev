@@ -60,7 +60,7 @@ export default function ContactForm({
 
   const [topic, setTopic] = useState(inquiryTitle);
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formState, action] = useFormState(submitContactFormState, {
     errors: {},
   });
@@ -109,6 +109,7 @@ export default function ContactForm({
         window.localStorage.removeItem("name");
         window.localStorage.removeItem("email");
         window.localStorage.removeItem("message");
+        formRef.current?.reset();
 
         setSent(true);
       }
