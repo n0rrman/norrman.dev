@@ -6,7 +6,6 @@ import SweMail from "@/emails/swe-mail";
 import EngMail from "@/emails/eng-mail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const url = "https://norrman.dev";
 
 export default async function sendEmail(
   topic: string,
@@ -17,25 +16,9 @@ export default async function sendEmail(
 ) {
   let mail;
   if (language === "eng") {
-    mail = (
-      <EngMail
-        name={name}
-        topic={topic}
-        email={email}
-        message={msg}
-        URL={url}
-      />
-    );
+    mail = <EngMail name={name} topic={topic} email={email} message={msg} />;
   } else {
-    mail = (
-      <SweMail
-        name={name}
-        topic={topic}
-        email={email}
-        message={msg}
-        URL={url}
-      />
-    );
+    mail = <SweMail name={name} topic={topic} email={email} message={msg} />;
   }
 
   try {
@@ -46,12 +29,12 @@ export default async function sendEmail(
         subject: `Norrman.dev: ${topic} confirmation`,
         react: mail,
       },
-      // {
-      // from: "Norrman.dev <noreply@norrman.dev>",
-      // to: email,
-      // subject: `Norrman.dev: ${topic} confirmation`,
-      // react: mail,
-      // },
+      {
+        from: "Norrman.dev <noreply@norrman.dev>",
+        to: email,
+        subject: `Norrman.dev: ${topic} confirmation`,
+        react: mail,
+      },
     ]);
   } catch (err: unknown) {
     console.log(err);
