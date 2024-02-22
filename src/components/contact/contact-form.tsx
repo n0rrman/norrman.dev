@@ -35,8 +35,11 @@ interface ContactFormProps {
     [errors.INPUT_TOO_SHORT]: string;
   };
   send: string;
+  edit: string;
   sentMessage: string;
+  confirmation: string;
   confirmationMessage: string;
+  confirmed: string;
   language: string;
 }
 
@@ -50,8 +53,11 @@ export default function ContactForm({
   messageLabel,
   errorMsgs,
   send,
+  edit,
   sentMessage,
+  confirmation,
   confirmationMessage,
+  confirmed,
   language,
 }: ContactFormProps) {
   const [selectedButton, setSelectedButton] = useState(INQUIRY);
@@ -117,8 +123,11 @@ export default function ContactForm({
   };
 
   return (
-    <div className="relative flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-xl w-full overflow-hidden">
+    <div className="relative flex flex-col md:flex-row backdrop-blur-xl bg-blue-950/10 dark:bg-slate-200/10 rounded-none xs:rounded-xl w-full overflow-hidden">
       <div className="flex flex-row md:flex-col w-full md:w-72 gap-3 text-sm md:text-base lg:text-xl p-5 border-slate-900 dark:border-slate-200/65 dark:text-slate-200/65 border-b md:border-r md:border-b-0">
+        <h3 className="hidden md:block uppercase tracking-widest text-sm ">
+          {messageType}
+        </h3>
         <FormButton
           clickHandler={(event: MouseEvent) =>
             handleButtonClick(event, INQUIRY)
@@ -157,21 +166,21 @@ export default function ContactForm({
           <FormInput
             id="name"
             title={nameLabel}
-            placeholder={`${nameLabel}: Alex Doe`}
+            placeholder={`${nameLabel.toUpperCase()}: Alex Doe`}
             errors={formState?.errors.name}
             errorMsgs={errorMsgs}
           />
           <FormInput
             id="email"
             title={emailLabel}
-            placeholder={`${emailLabel}: email@example.com`}
+            placeholder={`${emailLabel.toUpperCase()}: email@example.com`}
             errors={formState?.errors.email}
             errorMsgs={errorMsgs}
           />
           <FormInput
             id="message"
             title={messageLabel}
-            placeholder={`${messageLabel}: 👋`}
+            placeholder={`${messageLabel.toUpperCase()}: 👋`}
             textarea
             errors={formState?.errors.message}
             errorMsgs={errorMsgs}
@@ -212,7 +221,14 @@ export default function ContactForm({
               hideModal={() => {
                 setModal(false);
               }}
-              textContent={{ sentMessage, confirmationMessage }}
+              textContent={{
+                sentMessage,
+                confirmation,
+                confirmationMessage,
+                send,
+                confirmed,
+                edit,
+              }}
             />
           )}
         </form>

@@ -21,7 +21,10 @@ interface ContactSectionProps {
       [errors.INPUT_TOO_SHORT]: string;
     };
     send: string;
+    edit: string;
     sentMessage: string;
+    confirmed: string;
+    confirmation: string;
     confirmationMessage: string;
     language: string;
   };
@@ -40,18 +43,18 @@ export default function ContactSection({
     messageLabel,
     errorMsgs,
     send,
+    edit,
     sentMessage,
+    confirmation,
+    confirmed,
     confirmationMessage,
     language,
   },
 }: ContactSectionProps) {
   return (
-    <section className="w-full flex justify-center">
-      <div className="space-y-4 container max-w-[65rem] mx-8 md:mx-16">
-        <h1
-          id="contact"
-          className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8"
-        >
+    <section id="contact" className="w-full flex justify-center">
+      <div className="space-y-4 container max-w-[65rem] mx-5 xs:mx-8 md:mx-16">
+        <h1 className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8">
           <MdOutlineEmail className="text-orange-400" />
           <div className="animate-flyIn">
             {heading}
@@ -60,7 +63,7 @@ export default function ContactSection({
         </h1>
         <p className="text-sm md:text-base">{text}</p>
 
-        <div className="py-10">
+        <div className="py-10 -mx-5 xs:mx-0">
           <Suspense>
             <ContactForm
               messageType={messageType}
@@ -72,7 +75,10 @@ export default function ContactSection({
               messageLabel={messageLabel}
               errorMsgs={errorMsgs}
               send={send}
+              edit={edit}
               sentMessage={sentMessage}
+              confirmation={confirmation}
+              confirmed={confirmed}
               confirmationMessage={confirmationMessage}
               language={language}
             />
