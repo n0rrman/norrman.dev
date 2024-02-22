@@ -37,7 +37,7 @@ export default function Home() {
             subheading:
               "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolores voluptates nobis ab assumenda error autem deserunt, laudantium explicabo quaerat",
             buttonText: "En knapp",
-            scrollText: "Scrolla ner",
+            scrollText: "Scrolla ned",
           }}
         />
         <ServicesSection

@@ -21,9 +21,9 @@ export default function FooterSection({
   textContent: { backUp, sourceCode, langChange, changeTo, sendMail, connect },
 }: FooterSectionProps) {
   return (
-    <div className="grid grid-cols-1 gap-5 py-3 sm:grid-cols-2 lg:grid-cols-3 border-t border-slate-950 dark:border-slate-200/65 dark:text-slate-200/65 px-5 mt-24 text-xs w-full ">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 py-2 lg:grid-cols-3 border-t border-slate-950 dark:border-slate-200/65 text-slate-950/50 dark:text-slate-200/65 px-5 mt-24 text-[0.666rem] w-full ">
       <div className="flex flex-row items-center justify-center sm:justify-normal gap-0 order-last sm:order-1">
-        <div className="relative h-12 aspect-square mr-3">
+        <div className="relative h-14 aspect-square mr-3">
           <Image className="dark:invert" fill alt="" src={logo}></Image>
         </div>
 
@@ -32,7 +32,10 @@ export default function FooterSection({
           <div>Designed by norrman.dev</div>
           <div>
             Images designed by vectorjuice on{" "}
-            <Link href="https://www.freepik.com">https://www.freepik.com</Link>.
+            <Link className="hover:underline" href="https://www.freepik.com">
+              https://www.freepik.com
+            </Link>
+            .
           </div>
         </div>
       </div>
@@ -49,9 +52,9 @@ export default function FooterSection({
         </Link>
       </div>
 
-      <div className="flex flex-row  justify-center sm:justify-end gap-5 sm:gap-20 text-right py-2 order-0 sm:order-last">
+      <div className="flex flex-row  justify-center sm:justify-end gap-5 sm:gap-20 text-right order-0 sm:order-last">
         <div className="flex flex-col items-end w-1/2 sm:w-auto">
-          <h2 className="text-sm border-b w-fit border-slate-900 dark:border-slate-200/65 mb-1">
+          <h2 className="text-sm border-b w-fit border-slate-900/50 dark:border-slate-200/65 mb-1">
             norrman<span className="text-blueTo text-base">.</span>dev
           </h2>
           <Link className="hover:underline" href={langChangeURL}>
@@ -72,7 +75,7 @@ export default function FooterSection({
           </Link>
         </div>
         <div className="flex flex-col items-start sm:items-end w-1/2 sm:w-auto">
-          <h2 className="text-sm border-b w-fit border-slate-900 dark:border-slate-200/65 mb-1">
+          <h2 className="text-sm border-b w-fit border-slate-900/50 dark:border-slate-200/65 mb-1">
             {connect}
             <span className="text-blueTo text-base">.</span>
           </h2>
