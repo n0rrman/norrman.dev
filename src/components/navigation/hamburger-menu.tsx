@@ -68,7 +68,7 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
           open
             ? "opacity-100 scale-100 translate-y-[6.5rem] -translate-x-[4.5rem]"
             : "opacity-0 scale-0 translate-y-0"
-        } absolute h-auto w-[12.6rem] shadow-xl backdrop-blur-lg z-50 ease-in-out transition-all duration-200 bg-slate-200/75 dark:bg-slate-950/50 p-3 rounded-xl`}
+        } absolute h-auto w-[12.6rem] shadow-xl backdrop-blur-md z-50 ease-in-out transition-all duration-200 bg-slate-200/75 dark:bg-slate-950/50 p-3 rounded-xl`}
       >
         {children}
       </div>

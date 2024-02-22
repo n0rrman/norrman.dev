@@ -14,6 +14,10 @@ interface ModalProps {
   textContent: {
     sentMessage: string;
     confirmationMessage: string;
+    edit: string;
+    send: string;
+    confirmation: string;
+    confirmed: string;
   };
 }
 
@@ -21,7 +25,14 @@ export default function Modal({
   sent = false,
   hideModal,
   topic,
-  textContent: { sentMessage, confirmationMessage },
+  textContent: {
+    sentMessage,
+    confirmationMessage,
+    send,
+    edit,
+    confirmation,
+    confirmed,
+  },
 }: ModalProps) {
   const message = window.localStorage.getItem("message");
   const name = window.localStorage.getItem("name");
@@ -31,31 +42,45 @@ export default function Modal({
     if (!sent) {
       return (
         <>
-          <h3 className="text-2xl">Confirm your {topic}:</h3>
-          <p>{confirmationMessage}</p>
-          <div className="flex flex-col items-center normal-case">
-            <div className="overflow-scroll h-48 rounded-xl bg-bluishWhite/65 dark:bg-slate-900/65 w-full sm:w-[30rem] lg:w-[40rem] mb-3">
+          <h3 className="text-xl xs:text-2xl">
+            {confirmation}
+            <span className="text-orange-500">: </span>
+            {topic}
+          </h3>
+          <p className="normal-case w-72 text-center">
+            {confirmationMessage} {topic.toLowerCase()}?
+          </p>
+          <div className="flex flex-col items-center normal-case w-10/12">
+            <div className="overflow-scroll h-60 rounded-xl bg-bluishWhite/80 dark:bg-slate-900/80 w-full">
               <pre className="p-4 text-wrap whitespace-pre-line">{message}</pre>
             </div>
-            <h3 className="text-right w-full text-[0.75rem]">{name}</h3>
-            <h3 className="text-right w-full text-[0.6rem]">{email}</h3>
             <br />
-            <div className="flex flex-row gap-5 text-base justify-center items-center">
-              <button
-                type="submit"
-                className="flex flex-row justify-center items-center gap-2 bg-orange-500 text-white p-2 px-4 rounded-lg "
-              >
-                <div>Send</div>
-                <FiSend />
-              </button>
-              <button
-                onClick={hideModal}
-                type="button"
-                className="flex flex-row justify-center items-center gap-2 bg-transparent border-2 border-slate-900 p-2 px-4 rounded-lg "
-              >
-                <div>Edit</div>
-                <FiEdit />
-              </button>
+            <div className="flex flex-col-reverse md:flex-row text-base justify-between items-center w-full px-1 gap-5 md:gap-0">
+              <div className="flex flex-row gap-4 justify-center">
+                <button
+                  type="submit"
+                  className="flex flex-row justify-center items-center gap-2 bg-orange-500 text-white p-2 px-4 rounded-lg hover:text-orange-500 hover:bg-transparent border-orange-500 border-2 transition"
+                >
+                  <div>{send}</div>
+                  <FiSend />
+                </button>
+                <button
+                  onClick={hideModal}
+                  type="button"
+                  className="flex flex-row justify-center items-center gap-2 bg-transparent border-2 border-slate-200 dark:border-slate-900 p-2 px-4 rounded-lg"
+                >
+                  <div>{edit}</div>
+                  <FiEdit />
+                </button>
+              </div>
+              <div className="">
+                <h3 className="text-center md:text-right w-full text-base">
+                  {name}
+                </h3>
+                <h3 className="text-center md:text-right w-full text-sm">
+                  {email}
+                </h3>
+              </div>
             </div>
           </div>
         </>
@@ -68,11 +93,13 @@ export default function Modal({
               <h3 className="text-2xl flex flex-row items-center justify-center gap-2">
                 <MdDone className="text-green-600 text-4xl" />
                 <div className="">
-                  {topic} sent
-                  <span className="text-orange-500">!</span>
+                  {topic} {confirmed}!
                 </div>
               </h3>
-              <p>{sentMessage}</p>
+              <p className="normal-case">
+                {sentMessage}
+                <span className="text-orange-500">!</span>
+              </p>
             </div>
             <div className="w-[100vw]">
               <h3 className="flex flex-row items-center justify-end">
@@ -87,7 +114,7 @@ export default function Modal({
             } transition-all duration-100`}
           >
             <Image
-              className="object-contain mix-blend-multiply dark:mix-blend-hard-light select-none pointer-events-none contrast-125 dark:contrast-100 brightness-[0.9] dark:brightness-100"
+              className="object-contain mix-blend-multiply dark:mix-blend-luminosity select-none pointer-events-none contrast-125 dark:contrast-100 brightness-[0.9] dark:brightness-100"
               src={sentImg}
               priority
               alt=""
@@ -100,7 +127,7 @@ export default function Modal({
   };
 
   return (
-    <dialog className="w-full h-full absolute inset-0 bg-slate-200/10 dark:bg-slate-900/75 z-50 backdrop-blur-lg flex flex-col justify-center items-center py-10 gap-7">
+    <dialog className="w-full h-full absolute inset-0 bg-slate-200/90 dark:bg-slate-900/90 z-50 backdrop-blur-md flex flex-col justify-center items-center py-10 gap-3">
       {renderedModal()}
     </dialog>
   );

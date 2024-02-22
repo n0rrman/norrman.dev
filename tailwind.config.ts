@@ -19,7 +19,7 @@ const config: Config = {
         flyRight: 'flyRight 1s ease-in',
       },
       screens: {
-        'mini': '375px'
+        'xs': '480px'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'

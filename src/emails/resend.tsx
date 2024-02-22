@@ -21,22 +21,24 @@ export default async function sendEmail(
     mail = <SweMail name={name} topic={topic} email={email} message={msg} />;
   }
 
-  try {
-    await resend.batch.send([
-      {
-        from: "Norrman.dev <noreply@norrman.dev>",
-        to: process.env.ADMIN_EMAIL || "email@norrman.dev",
-        subject: `Norrman.dev: ${topic} confirmation`,
-        react: mail,
-      },
-      {
-        from: "Norrman.dev <noreply@norrman.dev>",
-        to: email,
-        subject: `Norrman.dev: ${topic} confirmation`,
-        react: mail,
-      },
-    ]);
-  } catch (err: unknown) {
-    console.log(err);
+  const { data, error } = await resend.batch.send([
+    {
+      from: "Norrman.dev <noreply@norrman.dev>",
+      to: process.env.ADMIN_EMAIL || "email@norrman.dev",
+      subject: `Norrman.dev: ${topic} confirmation`,
+      react: mail,
+    },
+    {
+      from: "Norrman.dev <noreply@norrman.dev>",
+      to: email,
+      subject: `Norrman.dev: ${topic} confirmation`,
+      react: mail,
+    },
+  ]);
+
+  console.log(data);
+
+  if (error) {
+    throw error;
   }
 }

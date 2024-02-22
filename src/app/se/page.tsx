@@ -82,6 +82,7 @@ export default function Home() {
             emailLabel: "Mail",
             messageLabel: "Meddelande",
             send: "Skicka",
+            edit: "Redigera",
             errorMsgs: {
               [errors.INPUT_NOT_EMAIL]: " är inte giltlig.",
               [errors.INPUT_TOO_LONG]: " är för lång.",
@@ -89,15 +90,27 @@ export default function Home() {
             },
             sentMessage:
               "Tack för ditt meddelande! Lorem ipsum dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet",
+            confirmed: "skickat",
             confirmationMessage:
               "Lorem jaudhia hoiahsoud ohiasoiud ioasdio aiou",
+            confirmation: "Bekräftelse",
             language: "swe",
           }}
         />
       </main>
-      {/* <footer>
-        <FooterSection />
-      </footer> */}
+      <footer>
+        <FooterSection
+          langChangeURL="/en"
+          textContent={{
+            backUp: "Tillbaka till toppen",
+            sourceCode: "Hemsidans källkod",
+            langChange: "Engelsk",
+            changeTo: "Ändra till",
+            sendMail: "Skicka mail",
+            connect: "Anslut",
+          }}
+        />
+      </footer>
     </>
   );
 }

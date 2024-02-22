@@ -19,6 +19,6 @@ export default function FlatDivider({
   wave = false,
 }: SectionDividerProps) {
   return (
-    <div className="absolute overflow-hidden w-screen z-20 h-[20vh] mt-[-10vh] bg-bluishWhite dark:bg-slate-900 -skew-y-3"></div>
+    <div className="absolute w-full z-20 h-[20vh] mt-[-10vh] bg-bluishWhite dark:bg-slate-900 -skew-y-3"></div>
   );
 }

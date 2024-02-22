@@ -51,7 +51,7 @@ export default function FormInput({
     }
     ${
       !!value ? "placeholder:opacity-0" : "placeholder:opacity-100"
-    } z-10 p-3 outline-none placeholder:uppercase placeholder:tracking-widest focus:border-orange-400 dark:focus:border-orange-400 focus:placeholder:-translate-y-[2.2rem] placeholder:opacity-100 focus:placeholder:opacity-0 placeholder:transition bg-transparent border-2 rounded-lg`;
+    } z-10 p-3 outline-none placeholder:tracking-widest focus:border-orange-400 dark:focus:border-orange-400 focus:placeholder:-translate-y-[2.2rem] placeholder:opacity-100 focus:placeholder:opacity-0 placeholder:transition bg-transparent border-2 rounded-lg`;
     if (textarea) {
       return (
         <textarea
