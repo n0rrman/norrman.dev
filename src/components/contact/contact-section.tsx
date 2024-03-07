@@ -1,4 +1,8 @@
+import Link from "next/link";
+import { FaDiscord } from "react-icons/fa";
+import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
+
 import ContactForm from "@/components/contact/contact-form";
 
 import * as errors from "@/error-messages";
@@ -53,15 +57,30 @@ export default function ContactSection({
 }: ContactSectionProps) {
   return (
     <section id="contact" className="w-full flex justify-center">
-      <div className="space-y-4 container max-w-[65rem] mx-5 xs:mx-8 md:mx-16">
+      <div className="space-y-4 container max-w-[60rem] mx-5 xs:mx-8 md:mx-16">
         <h1 className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8">
           <MdOutlineEmail className="text-orange-400" />
-          <div className="animate-flyIn">
+          <div>
             {heading}
             <span className="text-orange-400 ">.</span>
           </div>
         </h1>
-        <p className="text-sm md:text-base">{text}</p>
+        <p className="text-sm md:text-base max-w-[75ch]">{text}</p>
+
+        <div className="mt-auto ml-auto flex flex-row gap-3 dark:border-slate-200/65 border-slate-950/40">
+          <Link
+            href="mailto:email@henriknorrman.com"
+            className="hover:text-orange-400 hover:border-orange-400 flex flex-row items-center gap-2 p-3 border-2 rounded-full border-inherit transition-all"
+          >
+            <MdAlternateEmail className="text-xl" />
+          </Link>
+          <Link
+            href="https://discordapp.com/users/235864356980523009"
+            className="hover:text-orange-400 hover:border-orange-400 flex flex-row items-center gap-2 p-3 border-2 rounded-full border-inherit transition-all"
+          >
+            <FaDiscord className="text-xl" />
+          </Link>
+        </div>
 
         <div className="py-10 -mx-5 xs:mx-0">
           <Suspense>

@@ -8,6 +8,7 @@ import {
   HiOutlineAnnotation,
 } from "react-icons/hi";
 import { RiMailSendLine } from "react-icons/ri";
+
 import { useFormState, useFormStatus } from "react-dom";
 
 import { submitContactFormState } from "@/actions";
@@ -70,10 +71,6 @@ export default function ContactForm({
   const [formState, action] = useFormState(submitContactFormState, {
     errors: {},
   });
-
-  const handleOpenModal = () => {
-    setModal(true);
-  };
 
   const handleButtonClick = (event: MouseEvent, buttonId: string) => {
     setSelectedButton(buttonId);
@@ -205,7 +202,7 @@ export default function ContactForm({
               id="form-button"
               aria-label="submit form"
               type="submit"
-              className="flex flex-row items-center justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:border-orange-400 hover:border-orange-400"
+              className="flex flex-row items-center justify-center px-6 py-3 border-2 border-slate-950/65 dark:border-slate-200 rounded-lg gap-1 transition-all hover:text-orange-400 dark:hover:text-orange-500 dark:hover:border-orange-500 hover:border-orange-400"
             >
               <RiMailSendLine />
               <div>
