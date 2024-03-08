@@ -78,8 +78,7 @@ export default function NavigationBar({
 
     const repoLink = (
       <NavigationLink
-        // to="https://github.com/n0rrman/norrman.dev"
-        to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        to="https://github.com/n0rrman/norrman.dev"
         name={github}
         icon={<FaGithub />}
       />
@@ -109,7 +108,7 @@ export default function NavigationBar({
           <Image src={logo} alt="logo" fill />
         </Link>
 
-        <div className="flex flex-row gap-5 xs:gap-8 lg:gap-10">
+        <div className="flex flex-row gap-5 xs:gap-8 lg:gap-16">
           <NavigationButton
             name={home}
             icon={<MdOutlineHome />}

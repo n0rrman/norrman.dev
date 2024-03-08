@@ -24,7 +24,11 @@ export default function NavigationButton({
           : "flex-row gap-2 lg:gap-3 text-2xl lg:text-4xl"
       } flex justify-center items-center group`}
     >
-      <div className={`${className} transition group-hover:scale-105`}>
+      <div
+        className={`${
+          stickyMode ? "block" : "hidden"
+        } ${className} transition group-hover:scale-105`}
+      >
         {icon}
       </div>
       <div

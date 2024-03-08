@@ -21,8 +21,8 @@ export default function FooterSection({
   textContent: { backUp, sourceCode, langChange, changeTo, sendMail, connect },
 }: FooterSectionProps) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 py-2 lg:grid-cols-3 border-t border-slate-950 dark:border-slate-200/65 text-slate-950/50 dark:text-slate-200/65 px-5 mt-24 text-[0.666rem] w-full ">
-      <div className="flex flex-row items-center justify-center sm:justify-normal gap-0 order-last sm:order-1">
+    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 p-8 lg:grid-cols-3 border-t border-slate-950 dark:border-slate-200/65 text-slate-950/50 dark:text-slate-200/65 mt-24 text-xs w-full ">
+      <div className="flex flex-row items-center justify-center sm:justify-normal gap-0 order-last sm:order-1 ">
         <div className="relative h-14 aspect-square mr-3">
           <Image className="dark:invert" fill alt="" src={logo}></Image>
         </div>
@@ -31,16 +31,17 @@ export default function FooterSection({
           <div className="">© 2024 norrman.dev. All rights reserved.</div>
           <div>Designed by norrman.dev</div>
           <div>
-            Images designed by vectorjuice on{" "}
-            <Link className="hover:underline" href="https://www.freepik.com">
-              https://www.freepik.com
+            <Link
+              className="hover:underline"
+              href="https://www.freepik.com/author/vectorjuice"
+            >
+              Images designed by vectorjuice on Freepik.
             </Link>
-            .
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center items-center col-span-1 sm:col-span-2 lg:col-span-1 order-first lg:order-1">
+      <div className="flex flex-col justify-center items-center col-span-1 sm:col-span-2 lg:col-span-1 order-first lg:order-1">
         <Link
           href="#home"
           className="flex flex-col w-fit group justify-center items-center "
@@ -52,7 +53,7 @@ export default function FooterSection({
         </Link>
       </div>
 
-      <div className="flex flex-row  justify-center sm:justify-end gap-5 sm:gap-20 text-right order-0 sm:order-last">
+      <div className="flex flex-row  justify-center sm:justify-end gap-8 sm:gap-20 text-right order-0 sm:order-last ">
         <div className="flex flex-col items-end w-1/2 sm:w-auto">
           <h2 className="text-sm border-b w-fit border-slate-900/50 dark:border-slate-200/65 mb-1">
             norrman<span className="text-blueTo text-base">.</span>dev

@@ -18,20 +18,28 @@ interface ServicesSectionProps {
   textContent: {
     heading: string;
     introText: string;
+    servicesText: string;
     numberText: string;
-    sections: { number: number; title: string; text: string }[];
+    sections: {
+      number: number;
+      title: string;
+      enabled: string;
+      disabled: string;
+      keywords: string[];
+      text: string;
+    }[];
   };
 }
 
 export default function ServicesSection({
-  textContent: { heading, introText, numberText, sections },
+  textContent: { heading, introText, servicesText, numberText, sections },
 }: ServicesSectionProps) {
   return (
     <section className="my-[25vh] w-full">
       <SectionDivider slope top />
 
       <div className="flex bg-bluishWhite dark:bg-slate-900 justify-center py-[15vh]">
-        <div className="container flex flex-col gap-4 max-w-[65rem] mx-8 md:mx-16">
+        <div className="container flex flex-col gap-4 max-w-[60rem] mx-8 md:mx-16">
           <h1
             id="services"
             className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8"
@@ -42,7 +50,10 @@ export default function ServicesSection({
               <span className="text-blueTo">.</span>
             </div>
           </h1>
-          <p className="pb-10 text-sm md:text-base">{introText}</p>
+          <div className="pb-10 text-sm md:text-base max-w-[75ch] space-y-5">
+            <p>{introText}</p>
+            <p>{servicesText}</p>
+          </div>
 
           {/* // DO NOT DELETE THIS
         <h2 className="uppercase text-sm text-blueTo -mb-6 tracking-widest font-semibold">
@@ -69,6 +80,9 @@ export default function ServicesSection({
             numberText={numberText}
             title={sections[0].title}
             text={sections[0].text}
+            enabled={sections[0].enabled}
+            disabled={sections[0].disabled}
+            keywords={sections[0].keywords}
             img={designImg}
           />
           <ServiceBox
@@ -76,6 +90,9 @@ export default function ServicesSection({
             numberText={numberText}
             title={sections[1].title}
             text={sections[1].text}
+            enabled={sections[1].enabled}
+            disabled={sections[1].disabled}
+            keywords={sections[1].keywords}
             img={developmentImg}
           />
           <ServiceBox
@@ -83,6 +100,9 @@ export default function ServicesSection({
             numberText={numberText}
             title={sections[2].title}
             text={sections[2].text}
+            enabled={sections[2].enabled}
+            disabled={sections[2].disabled}
+            keywords={sections[2].keywords}
             img={devOpsImg}
           />
           <ServiceBox
@@ -90,6 +110,9 @@ export default function ServicesSection({
             numberText={numberText}
             title={sections[3].title}
             text={sections[3].text}
+            enabled={sections[3].enabled}
+            disabled={sections[3].disabled}
+            keywords={sections[3].keywords}
             img={maintenanceImg}
           />
         </div>
