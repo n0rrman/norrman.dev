@@ -39,18 +39,16 @@ export default function ServicesSection({
       <SectionDivider slope top />
 
       <div className="flex bg-bluishWhite dark:bg-slate-900 justify-center py-[15vh]">
+        <div id="services" className="-mt-24"></div>
         <div className="container flex flex-col gap-4 max-w-[60rem] mx-8 md:mx-16">
-          <h1
-            id="services"
-            className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8"
-          >
+          <h1 className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8">
             <FaTasks className="text-blueTo" />
             <div className="text-slate-950 dark:text-slate-200">
               {heading}
               <span className="text-blueTo">.</span>
             </div>
           </h1>
-          <div className="pb-10 text-sm md:text-base max-w-[75ch] space-y-5">
+          <div className="pb-10 text-base md:text-lg max-w-[75ch] space-y-5">
             <p>{introText}</p>
             <p>{servicesText}</p>
           </div>

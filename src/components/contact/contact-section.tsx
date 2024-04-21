@@ -56,7 +56,8 @@ export default function ContactSection({
   },
 }: ContactSectionProps) {
   return (
-    <section id="contact" className="w-full flex justify-center">
+    <section className="w-full flex justify-center">
+      <div id="contact" className="-mt-24" />
       <div className="space-y-4 container max-w-[60rem] mx-5 xs:mx-8 md:mx-16">
         <h1 className="text-2xl md:text-3xl tracking-widest uppercase flex flex-row items-center gap-8">
           <MdOutlineEmail className="text-orange-400" />
@@ -65,7 +66,7 @@ export default function ContactSection({
             <span className="text-orange-400 ">.</span>
           </div>
         </h1>
-        <p className="text-sm md:text-base max-w-[75ch]">{text}</p>
+        <p className="text-base md:text-lg max-w-[75ch]">{text}</p>
 
         <div className="mt-auto ml-auto flex flex-row gap-3 dark:border-slate-200/65 border-slate-950/40">
           <Link

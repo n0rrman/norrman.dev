@@ -47,14 +47,14 @@ export default function FooterSection({
           className="flex flex-col w-fit group justify-center items-center "
         >
           <FaAngleUp className="text-xl animate-bounce" />
-          <h2 className="border-b border-b-transparent text-sm group-hover:cursor-pointer group-hover:border-b-slate-200 transition-[border]">
+          <h2 className="border-b border-b-transparent text-base group-hover:cursor-pointer group-hover:border-b-slate-200 transition-[border]">
             {backUp}
           </h2>
         </Link>
       </div>
 
       <div className="flex flex-row  justify-center sm:justify-end gap-8 sm:gap-20 text-right order-0 sm:order-last ">
-        <div className="flex flex-col items-end w-1/2 sm:w-auto">
+        <div className="flex flex-col items-end w-1/2 sm:w-auto gap-1">
           <h2 className="text-sm border-b w-fit border-slate-900/50 dark:border-slate-200/65 mb-1">
             norrman<span className="text-blueTo text-base">.</span>dev
           </h2>
@@ -75,7 +75,7 @@ export default function FooterSection({
             {sourceCode}
           </Link>
         </div>
-        <div className="flex flex-col items-start sm:items-end w-1/2 sm:w-auto">
+        <div className="flex flex-col items-start sm:items-end w-1/2 sm:w-auto gap-1">
           <h2 className="text-sm border-b w-fit border-slate-900/50 dark:border-slate-200/65 mb-1">
             {connect}
             <span className="text-blueTo text-base">.</span>
