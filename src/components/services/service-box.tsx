@@ -63,7 +63,7 @@ export default function ServiceBox({
                     <div className="flex flex-row items-center justify-center gap-2">
                       <TiTick className="text-green-500 text-2xl" />
                       <h3 className="font-bold w-full tracking-wide">
-                        I'm interested
+                        I&apos;m interested
                       </h3>
                     </div>
                     <p className="tracking-tight">{enabled}</p>
@@ -72,7 +72,7 @@ export default function ServiceBox({
                     <div className="flex flex-row items-center justify-center gap-2">
                       <TiTimes className="text-red-500 text-2xl" />
                       <h3 className="font-bold w-full tracking-wide">
-                        I'm NOT interested
+                        I&apos;m NOT interested
                       </h3>
                     </div>
                     <p className="tracking-tight">{disabled}</p>
