@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { MdConstruction } from "react-icons/md";
 import enFlag from "/public/uk-flag.svg";
 import NavigationBar from "@/components/navigation/navigation-bar";
 import HeroSection from "@/components/hero/hero-section";
@@ -8,10 +9,30 @@ import ContactSection from "@/components/contact/contact-section";
 import FooterSection from "@/components/footer/footer-section";
 
 import * as errors from "@/error-messages";
+import { Suspense } from "react";
+
+const heading =
+  "Design, utveckling och underhåll: Alla dina webbbehov på ett och samma ställe";
+const subheading =
+  "Personliga hemsidor designade för individer eller företag, oavsett projektets omfattning eller komplexitet. Inget projekt är för stora eller för små. Lämna dina webbrelaterade bekymmer till oss, så du kan fokusera på dina egna uppgifter. Med obegränsade revideringar och inga åtaganden förrän projektet är färdigt, skicka in en riskfri förfrågan där du beskriver dina behov.";
 
 export const metadata: Metadata = {
-  title: "Norrman: SWE",
-  description: "Hej, världen!",
+  title: `Norrman.dev: ${heading}.`,
+  description: subheading,
+  metadataBase: new URL("https://norrman.dev"),
+  alternates: {
+    canonical: "https://norrman.dev",
+    languages: {
+      "en-GB": "/",
+      "se-SV": "/se",
+    },
+  },
+  openGraph: {
+    images: "/opengraph-image.png",
+  },
+  twitter: {
+    images: "/twitter-image.png",
+  },
 };
 
 export default function Home() {
@@ -30,51 +51,74 @@ export default function Home() {
           langIcon={enFlag}
         />
       </header>
-      <main>
+
+      <main className="flex flex-col items-center justify-center">
         <HeroSection
           textContent={{
-            heading: "Hej, hej! Detta är en rubrik",
-            subheading:
-              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolores voluptates nobis ab assumenda error autem deserunt, laudantium explicabo quaerat",
-            buttonText: "En knapp",
+            heading: heading,
+            subheading: subheading,
+            buttonText: "Skicka projektförfrågan",
             scrollText: "Scrolla ned",
           }}
         />
-        <ServicesSection
-          textContent={{
-            heading: "Tjänster",
-            introText:
-              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid.",
-            numberText: "Steg",
-            sections: [
-              {
-                number: 1,
-                title: "UI design",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
-              },
-              {
-                number: 2,
-                title: "Utveckling",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
-              },
-              {
-                number: 3,
-                title: "DevOps",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
-              },
-              {
-                number: 4,
-                title: "Underhåll",
-                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
-              },
-            ],
-          }}
-        />
+        <Suspense>
+          <div className="min-h-screen flex items-center justify-center text-4xl">
+            <h1 className="flex flex-row gap-5 uppercase tracking-widest">
+              <MdConstruction />
+              under konstruktion!
+            </h1>
+          </div>
+          {/*       
+          <ServicesSection
+            textContent={{
+              heading: "Tjänster",
+              introText:
+                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel laborum tempora sit temporibus, consequatur dicta pariatur quis minus. Voluptatibus eligendi consequatur nemo laudantium numquam ipsam facere aspernatur eos aliquam aliquid.",
+              servicesText: "",
+              numberText: "Steg",
+              sections: [
+                {
+                  number: 1,
+                  title: "UI design",
+                  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+                  enabled: "",
+                  disabled: "",
+                  keywords: [],
+                },
+                {
+                  number: 2,
+                  title: "Utveckling",
+                  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+                  enabled: "",
+                  disabled: "",
+                  keywords: [],
+                },
+                {
+                  number: 3,
+                  title: "DevOps",
+                  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+                  enabled: "",
+                  disabled: "",
+                  keywords: [],
+                },
+                {
+                  number: 4,
+                  title: "Underhåll",
+                  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eius voluptatibus nulla temporibus reiciendis, laudantium sint, quia laboriosam commodi vel? Quasi repellat magni, temporibus hic voluptates perferendis voluptas itaque.",
+                  enabled: "",
+                  disabled: "",
+                  keywords: [],
+                },
+              ],
+            }}
+          />
+        */}
+        </Suspense>
         <ContactSection
           textContent={{
             heading: "Kontakt",
-            text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, dicta nulla quaerat reiciendis dolore dignissimos",
-            messageType: "Syfte",
+            text: "Oavsett om du har en klar bild av dina behov eller osäker på vad du behöver, är vi här för att hjälpa dig! Skicka en förfrågan för en kostnadsfri tids- och kostnadsuppskattning. Du har inga inga åtaganden eller förpliktelser förrän du är helt nöjd med det slutliga produkten. Fyll i kontaktformuläret eller kontakta oss via Discord eller e-post genom att klicka på ikonerna nedan. Du kommer få ett svar inom 24 timmar efter att förfrågan har mottagits.",
+            messageType: "Typ",
             inquiryTitle: "Projektförfrågan",
             messageTitle: "Meddelande",
             suggestionTitle: "Förslag",
@@ -89,11 +133,11 @@ export default function Home() {
               [errors.INPUT_TOO_SHORT]: " är för kort.",
             },
             sentMessage:
-              "Tack för ditt meddelande! Lorem ipsum dicta nulla quaerat reiciendis dolore dignissimosLorem ipsum, dolor sit amet",
+              "Tack för ditt meddelande! En bekräftelse via e-post kommer att skickas till dig inom kort",
+            confirmation: "Bekräftelse",
             confirmed: "skickat",
             confirmationMessage:
-              "Lorem jaudhia hoiahsoud ohiasoiud ioasdio aiou",
-            confirmation: "Bekräftelse",
+              "Vänligen bekräfta ditt namn, e-post och meddelande. Är du säker på att du vill skicka följande",
             language: "swe",
           }}
         />
