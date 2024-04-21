@@ -48,7 +48,7 @@ export default function ServicesSection({
               <span className="text-blueTo">.</span>
             </div>
           </h1>
-          <div className="pb-10 text-base md:text-lg max-w-[75ch] space-y-5">
+          <div className="pb-10 text-sm md:text-base max-w-[75ch] space-y-5">
             <p>{introText}</p>
             <p>{servicesText}</p>
           </div>

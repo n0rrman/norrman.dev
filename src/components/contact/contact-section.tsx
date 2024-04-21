@@ -66,7 +66,7 @@ export default function ContactSection({
             <span className="text-orange-400 ">.</span>
           </div>
         </h1>
-        <p className="text-base md:text-lg max-w-[75ch]">{text}</p>
+        <p className="text-sm md:text-base max-w-[75ch]">{text}</p>
 
         <div className="mt-auto ml-auto flex flex-row gap-3 dark:border-slate-200/65 border-slate-950/40">
           <Link
