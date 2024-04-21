@@ -51,7 +51,7 @@ export default function Modal({
             {confirmationMessage} {topic.toLowerCase()}?
           </p>
           <div className="flex flex-col items-center normal-case w-10/12">
-            <div className="overflow-scroll h-60 rounded-xl bg-bluishWhite/80 dark:bg-slate-900/80 w-full">
+            <div className="overflow-scroll h-60 rounded-xl bg-bluishWhite/80 dark:bg-slate-900/80 w-full border-2 dark:border-slate-200 border-slate-900">
               <pre className="p-4 text-wrap whitespace-pre-line">{message}</pre>
             </div>
             <br />
@@ -67,7 +67,7 @@ export default function Modal({
                 <button
                   onClick={hideModal}
                   type="button"
-                  className="flex flex-row justify-center items-center gap-2 bg-transparent border-2 border-slate-200 dark:border-slate-900 p-2 px-4 rounded-lg"
+                  className="flex flex-row justify-center items-center gap-2 bg-transparent border-2 dark:border-slate-200 border-slate-900 hover:opacity-65 transition p-2 px-4 rounded-lg"
                 >
                   <div>{edit}</div>
                   <FiEdit />
@@ -109,12 +109,12 @@ export default function Modal({
             </div>
           </div>
           <div
-            className={`relative flex justify-center items-center aspect-square w-[15rem] ${
+            className={`relative flex justify-center items-center aspect-square w-[12.6rem] ${
               sent ? "opacity-100" : "opactiy-0"
             } transition-all duration-100`}
           >
             <Image
-              className="object-contain mix-blend-multiply dark:mix-blend-luminosity select-none pointer-events-none contrast-125 dark:contrast-100 brightness-[0.9] dark:brightness-100"
+              className="object-contain mix-blend-multiply dark:mix-blend-hard-light select-none pointer-events-none contrast-125 dark:contrast-100 brightness-[0.9] dark:brightness-100"
               src={sentImg}
               priority
               alt=""

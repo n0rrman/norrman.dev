@@ -46,7 +46,7 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
                     <Img
                       className="ml-auto"
                       alt=""
-                      src="https://henriknorrman.com/logo.jpg"
+                      src="https://norrman.dev/email/logo.jpg"
                       width="80"
                       height="80"
                     />
@@ -57,7 +57,7 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
                 <Img
                   className="block mx-auto"
                   alt=""
-                  src="https://henriknorrman.com/email.png"
+                  src="https://norrman.dev/email/email.png"
                   height="260"
                   width="410"
                 />
@@ -69,7 +69,7 @@ export const SweEmail = ({ name, email, message, topic }: EmailProps) => {
                 <Text className="inline text-lg">
                   Tack för ditt meddelande! Detta är ett automatiskt svar för
                   att bekräfta att meddelandet kommit fram. Inom 24 timmar får
-                  du ett manuellt svar.
+                  du ett manuellt svar till samma e-postadress.
                 </Text>
                 <Text className="text-sm">Ditt meddelande:</Text>
                 <pre className="rounded-xl bg-gray-600/10 -mt-3 p-4 w-full">
