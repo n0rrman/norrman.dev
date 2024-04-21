@@ -20,19 +20,19 @@ export default function HeroSection({
   return (
     <section
       id="hero"
-      className="flex flex-col items-center justify-center h-full max-w-[30rem] md:max-w-[85rem] -pl-0 -pr-5 md:-pl-5 mx-5"
+      className="flex flex-col items-center justify-start h-full max-w-[30rem] md:max-w-[85rem] -pl-0 -pr-5 md:-pl-5 mx-5"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-[65vh] md:min-h-[calc(80vh-8rem)] w-full items-start md:items-center justify-center gap-5 sm:gap-8 xl:gap-24 transition-all pb-5 md:pb-0">
         <div className="flex flex-col items-center md:items-start w-full max-w-[40rem] pl-0 md:pl-10 flex-0 gap-8 lg:gap-10 text-center md:text-left">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl xl:text-5xl font-semibold">
+          <h1 className="text-xl xs:text-2xl sm:text-3xl xl:text-4xl font-semibold">
             {heading}
             <span className="text-fuchsia-700">!</span>
           </h1>
-          <p className="text-base xs:text-lg md:text-base lg:text-lg xl:text-xl">
+          <p className="text-base xs:text-base md:text-base lg:text-base xl:text-lg">
             {subheading}
           </p>
           <Link
-            className="w-full md:w-max px-8 my-5 md:my-3 py-4 text-xl rounded-[3rem] text-slate-200 bg-gradient-to-tr from-blueFrom hover:shadow-xl hover:contrast-125 hover:brightness-90 transition-all to-blueTo shadow-lg"
+            className="w-full md:w-max px-8 mt-5 md:my-3 py-4 text-xl rounded-[3rem] text-slate-200 bg-gradient-to-tr from-blueFrom hover:shadow-xl hover:contrast-125 hover:brightness-90 transition-all to-blueTo shadow-lg"
             href="#contact"
           >
             {buttonText}
